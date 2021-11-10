@@ -17,8 +17,6 @@ const resetOutput = document.querySelector('#reset-output') as HTMLButtonElement
 const copyOutput = document.querySelector('#copy-output') as HTMLButtonElement;
 
 function keypressListener(event: KeyboardEvent): void {
-  console.log(event);
-
   const keyCaptured = convertKeys(event.code, event.key);
   bind.setKey(keyCaptured);
   addText(keySelected, keyCaptured);
