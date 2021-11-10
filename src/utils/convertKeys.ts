@@ -9,6 +9,13 @@ export const numpadKeys: Record<string, string> = {
   Numpad8: 'kp_uparrow',
   Numpad9: 'kp_pgup',
   Numpad0: 'kp_ins',
+  NumpadMultiply: 'kp_multiply',
+  NumpadDivide: 'kp_slash',
+  NumpadSubtract: 'kp_minus',
+  NumpadAdd: 'kp_plus',
+  NumpadComma: '.',
+  NumpadDecimal: 'kp_del',
+  NumpadEnter: 'kp_enter'
 };
 
 export function convertKeys(keyCode: string, key: string): string {
@@ -18,5 +25,5 @@ export function convertKeys(keyCode: string, key: string): string {
     key = numpadKeys[keyCode];
   }
 
-  return key;
+  return key.toUpperCase();
 }
