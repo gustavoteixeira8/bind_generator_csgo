@@ -5,6 +5,7 @@ import './assets/css/style.css'
 import { BindGenerator } from './modules/BindGenerator';
 import { addText } from './utils';
 import './modules/addGunsToDOM';
+import { convertKeys } from './utils/convertKeys';
 
 const bind = new BindGenerator();
 const selectKeyButton = document.querySelector('#select-key') as HTMLButtonElement;
@@ -16,7 +17,11 @@ const resetOutput = document.querySelector('#reset-output') as HTMLButtonElement
 const copyOutput = document.querySelector('#copy-output') as HTMLButtonElement;
 
 function keypressListener(event: KeyboardEvent): void {
-  const keyCaptured = event.key.toUpperCase();
+  console.log(event);
+
+  const keyCaptured = convertKeys(event.code, event.key);
+  console.log(keyCaptured);
+
   bind.setKey(keyCaptured);
   addText(keySelected, keyCaptured);
   removeKeypressListener();
@@ -28,11 +33,11 @@ selectKeyButton.addEventListener('click', () => {
 });
 
 export function addKeypressListener(): void {
-  document.addEventListener('keypress', keypressListener);
+  document.addEventListener('keydown', keypressListener);
 }
 
 export function removeKeypressListener(): void {
-  document.removeEventListener('keypress', keypressListener);
+  document.removeEventListener('keydown', keypressListener);
 }
 
 export function gunsChecked(): string[] {
