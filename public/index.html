@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gustavo Teixeira" />
+    <meta name="description" content="Bind generator for CSGO" />
+    <meta name="keywords" content="csgo, bind, generator" />
+    <meta http-equiv="content-language" content="en-US" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="rating" content="general" />
+    <title>Bind Generator - CSGO</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="
+          navbar
+          shadow-lg
+          border-bottom border-3 border-warning
+          navbar-light
+          bg-dark
+        "
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand text-warning" href="index.html"
+            >BindGenerator</a
+          >
+          <a
+            class="navbar-brand text-warning ml-auto"
+            target="_blank"
+            href="https://github.com/gustavoteixeira8/bind_generator_csgo"
+          >
+            Project GitHub
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <section id="section-keyboard" class="container my-2 pt-3">
+      <div class="box-keyboard bg-dark text-center p-2 rounded">
+        <h1 class="lead text-white fw-bold">Select any key to make a bind</h1>
+
+        <div class="select-key-button">
+          <button class="btn btn-lg btn-warning text-white" id="select-key">
+            Click here to select
+          </button>
+        </div>
+
+        <div class="selected-key-box my-1">
+          <p class="text-warning" id="key-selected"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-command-guns" class="container my-2">
+      <div class="row justify-content-center" id="guns-container"></div>
+    </section>
+
+    <section id="section-make-bind-button" class="container my-5">
+      <div class="text-center">
+        <button
+          class="btn btn-lg text-white btn-warning fw-bold w-100"
+          id="make-bind-button"
+          style="height: 55px !important"
+        >
+          CREATE BIND
+        </button>
+      </div>
+    </section>
+
+    <section id="section-bind-output" class="container my-5">
+      <div id="buttons-output" class="my-1">
+        <button class="btn btn btn-warning text-white" id="reset-output">Reset all</button>
+
+        <button class="btn btn btn-warning text-white" id="copy-output">Copy all</button>
+      </div>
+
+      <div id="output-bind" class="rounded"></div>
+    </section>
+
+    <script src="./assets/bundle.js"></script>
+  </body>
+</html>
