@@ -3,9 +3,9 @@ import 'regenerator-runtime/runtime'
 import 'bootstrap'
 import './assets/css/style.css'
 import { BindGenerator } from './modules/BindGenerator';
-import { addText } from './utils';
+import { addText } from './modules/addText';
 import './modules/addGunsToDOM';
-import { convertKeys } from './utils/convertKeys';
+import { convertKeys } from './modules/convertKeys';
 
 const bind = new BindGenerator();
 const selectKeyButton = document.querySelector('#select-key') as HTMLButtonElement;
