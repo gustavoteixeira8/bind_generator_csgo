@@ -6,6 +6,7 @@ import { BindGenerator } from './modules/BindGenerator';
 import { addText } from './modules/addText';
 import './modules/addGunsToDOM';
 import { convertKeys } from './modules/convertKeys';
+import { downloadTXT } from './modules/download';
 
 const bind = new BindGenerator();
 const selectKeyButton = document.querySelector('#select-key') as HTMLButtonElement;
@@ -15,6 +16,7 @@ const outputBind = document.querySelector('#output-bind') as HTMLDivElement;
 const makeBindButton = document.querySelector('#make-bind-button') as HTMLButtonElement;
 const resetOutput = document.querySelector('#reset-output') as HTMLButtonElement;
 const copyOutput = document.querySelector('#copy-output') as HTMLButtonElement;
+const downloadOutput = document.querySelector('#download-output') as HTMLButtonElement;
 
 function keypressListener(event: KeyboardEvent): void {
   const keyCaptured = convertKeys(event.code, event.key);
@@ -23,7 +25,7 @@ function keypressListener(event: KeyboardEvent): void {
   removeKeypressListener();
 }
 
-selectKeyButton.addEventListener('click', (event) => {
+selectKeyButton.addEventListener('click', () => {
   selectKeyButton.blur();
   resetKeySelectedText();
   addKeypressListener();
@@ -60,7 +62,7 @@ export function bindGuns(): void {
 
   const bindCreated = bind.makeBind();
 
-  addText(outputBind, `<p>${bindCreated}</p>`, '+');
+  addText(outputBind, `<p>${bindCreated}\n</p>`, '+');
 
   bind.reset();
 }
@@ -92,4 +94,14 @@ resetOutput.addEventListener('click', () => {
 copyOutput.addEventListener('click', () => {
   const outputData = outputBind.textContent as string;
   navigator.clipboard.writeText(outputData);
+});
+
+downloadOutput.addEventListener('click', () => {
+  let outputData = outputBind.textContent as string;
+
+  if (outputData === "") {
+    return;
+  }
+
+  downloadTXT("bind_csgo", outputData);
 });
