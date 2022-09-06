@@ -81,14 +81,12 @@ export function resetKeySelectedText(): void {
   addText(keySelected, 'Waiting a new key...');
 }
 
-export function copyOutputToClipboard(): void {
-  const outputData = outputBind.textContent as string;
-
-  if (!outputData) {
+export function copyToClipboard(data: string): void {
+  if (!data) {
     return;
   }
 
-  navigator.clipboard.writeText(outputData);
+  navigator.clipboard.writeText(data);
 }
 
 makeBindButton.addEventListener('click', () => {
@@ -101,7 +99,8 @@ makeBindButton.addEventListener('click', () => {
     const bindsCreated = document.querySelectorAll('.bind-created') as NodeListOf<HTMLElement>;
     bindsCreated.forEach((el: HTMLElement) => {
       el.addEventListener('click', () => {
-        copyOutputToClipboard();
+        const data = el.textContent as string;
+        copyToClipboard(data);
         alert('Copied!');
       });
     });
@@ -116,7 +115,8 @@ resetOutput.addEventListener('click', () => {
 });
 
 copyOutput.addEventListener('click', () => {
-  copyOutputToClipboard();
+  const allData = outputBind.textContent as string;
+  copyToClipboard(allData);
   alert('Copied!');
 });
 
