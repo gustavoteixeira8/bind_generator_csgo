@@ -178,12 +178,12 @@ export const guns: GunProtocol[] = [
   {
     name: 'Kevlar',
     code: 'vest',
-    image: 'https://res.cloudinary.com/dyghyeimq/image/upload/v1662208806/CSGO_BIND/Assaultsuithud_csgo_rqmoa8.webp'
+    image: 'https://res.cloudinary.com/dyghyeimq/image/upload/v1662208806/CSGO_BIND/Kevlarhud_csgo_eaqxg0.webp'
   },
   {
     name: 'Helmet',
     code: 'vesthelm',
-    image: 'https://res.cloudinary.com/dyghyeimq/image/upload/v1662208806/CSGO_BIND/Assaultsuithud_csgo_rqmoa8.webp'
+    image: 'https://res.cloudinary.com/dyghyeimq/image/upload/v1662208806/CSGO_BIND/Helmet_csgo_rqmoa8_b82drd.webp'
   },
   {
     name: 'Defuse kit',

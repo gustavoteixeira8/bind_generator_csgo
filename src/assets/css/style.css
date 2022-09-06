@@ -26,6 +26,7 @@ body {
 .label-guns img {
   width: 100%;
   height: 100%;
+  image-resolution: 300dpi;
 }
 
 #output-bind {
@@ -38,4 +39,32 @@ body {
   font-size: 20px;
   overflow-y: auto;
   scroll-behavior: smooth;
+}
+
+.bind-created {
+  cursor: pointer;
+}
+
+#page-up-or-down {
+  width: 40px;
+  height: 40px;
+  background-color: #ffc107;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  display: none;
+}
+
+#page-up, #page-down {
+  font-size: 35px;
+  color: #212529;
+  padding: 0;
+  margin: 0 auto;
+  user-select: none;
 }

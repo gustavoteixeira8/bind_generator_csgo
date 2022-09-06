@@ -9,6 +9,7 @@ import { convertKeys } from './modules/convertKeys';
 import { downloadTXT } from './modules/download';
 
 const bind = new BindGenerator();
+const pageUpOrDown = document.querySelector('#page-up-or-down') as HTMLDivElement;
 const selectKeyButton = document.querySelector('#select-key') as HTMLButtonElement;
 const keySelected = document.querySelector('#key-selected') as HTMLParagraphElement;
 const inputGuns = document.querySelectorAll('.input-guns') as NodeListOf<HTMLInputElement>;
@@ -62,7 +63,12 @@ export function bindGuns(): void {
 
   const bindCreated = bind.makeBind();
 
-  addText(outputBind, `<p>${bindCreated}\n</p>`, '+');
+  addText(outputBind, `
+    <p class='bind-created' title='Click to copy'>
+      ${bindCreated}\n
+    </p>`,
+    '+'
+  );
 
   bind.reset();
 }
@@ -75,12 +81,30 @@ export function resetKeySelectedText(): void {
   addText(keySelected, 'Waiting a new key...');
 }
 
+export function copyOutputToClipboard(): void {
+  const outputData = outputBind.textContent as string;
+
+  if (!outputData) {
+    return;
+  }
+
+  navigator.clipboard.writeText(outputData);
+}
+
 makeBindButton.addEventListener('click', () => {
   try {
     bindGuns();
     uncheckGunsCheckbox();
     resetKeySelectedText();
     addKeypressListener();
+
+    const bindsCreated = document.querySelectorAll('.bind-created') as NodeListOf<HTMLElement>;
+    bindsCreated.forEach((el: HTMLElement) => {
+      el.addEventListener('click', () => {
+        copyOutputToClipboard();
+        alert('Copied!');
+      });
+    });
   } catch (error) {
     addKeypressListener();
     if (error instanceof Error) alert(error.message);
@@ -92,16 +116,31 @@ resetOutput.addEventListener('click', () => {
 });
 
 copyOutput.addEventListener('click', () => {
-  const outputData = outputBind.textContent as string;
-  navigator.clipboard.writeText(outputData);
+  copyOutputToClipboard();
+  alert('Copied!');
 });
 
 downloadOutput.addEventListener('click', () => {
-  let outputData = outputBind.textContent as string;
+  const outputData = outputBind.textContent as string;
 
-  if (outputData === "") {
+  if (!outputData) {
     return;
   }
 
-  downloadTXT("bind_csgo", outputData);
+  downloadTXT('bind_csgo', outputData);
+});
+
+pageUpOrDown.addEventListener('click', () => {
+  if (window.scrollY > 0) {
+    window.scrollTo({ top: 0 });
+    return;
+  }
+});
+
+document.addEventListener('scroll', () => {
+  if (window.scrollY >= 250) {
+    pageUpOrDown.style.display = 'flex';
+    return;
+  }
+  pageUpOrDown.style.display = 'none';
 });
