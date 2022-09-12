@@ -61,10 +61,23 @@ body {
   display: none;
 }
 
-#page-up, #page-down {
+#page-up {
   font-size: 35px;
   color: #212529;
   padding: 0;
   margin: 0 auto;
   user-select: none;
+}
+
+.label-commands {
+  width: 100vw;
+  height: 70px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0;
+}
+
+.input-commands:checked + .label-commands {
+  background-color: #ffc107;
+  color: white !important;
 }

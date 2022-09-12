@@ -1,0 +1,11 @@
+export const TYPEOF_BIND_BUY = "BUY";
+export const TYPEOF_BIND_COMMANDS = "COMMANDS";
+export const TYPEOF_BIND_SAY = "SAY";
+export const TYPEOF_BIND_TRAINING = "TRAINING";
+
+export const TYPEOF_JUMP_THROW = "JUMP_THROW";
+export const TYPEOF_JUMP_SCROLL = "JUMP_SCROLL";
+export const TYPEOF_CLEAR_BLOOD = "CLEAR_BLOOD";
+export const TYPEOF_DROP_BOMB = "DROP_BOMB";
+export const TYPEOF_DROP_PISTOL = "DROP_PISTOL";
+export const TYPEOF_FAKE_FLASH = "FAKE_FLASH";

@@ -28,13 +28,18 @@
           <a class="navbar-brand text-warning" href="index.html"
             >BindGenerator</a
           >
-          <a
-            class="navbar-brand text-warning ml-auto"
-            target="_blank"
-            href="https://github.com/gustavoteixeira8/bind_generator_csgo"
-          >
-            GitHub
-          </a>
+
+          <div class="dropdown ml-auto">
+            <button class="btn btn-outline-warning dropdown-toggle" type="button" data-toggle="dropdown">
+              Select different binds
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item typeof-bind" typeof-bind="BUY" href="#">Buy</a>
+              <a class="dropdown-item typeof-bind" typeof-bind="COMMANDS" href="#">Commands</a>
+              <a class="dropdown-item typeof-bind" typeof-bind="SAY" href="#">Training</a>
+              <a class="dropdown-item typeof-bind" typeof-bind="TRAINING" href="#">Say</a>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -55,8 +60,13 @@
       </div>
     </section>
 
-    <section id="section-command-guns" class="container my-2">
+    <section id="section-guns" class="container my-2">
       <div class="row justify-content-center" id="guns-container"></div>
+    </section>
+
+    <section id="section-commands" class="container my-2" style="display: none;">
+      <div class="row justify-content-center" id="command-container">
+      </div>
     </section>
 
     <section id="section-make-bind-button" class="container my-5">

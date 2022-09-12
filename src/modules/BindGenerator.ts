@@ -44,4 +44,12 @@ export class BindGenerator {
     const completedBind = `bind "${this._key}" "${this._command}";`;
     return completedBind;
   }
+
+  public makeBindToggle(): string | never {
+    throw new Error("implement me");
+  }
+
+  public makeBindIncrementVar(): string | never {
+    throw new Error("implement me");
+  }
 }
