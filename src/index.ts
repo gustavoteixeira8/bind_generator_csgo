@@ -187,13 +187,25 @@ copyOutput.addEventListener('click', () => {
 });
 
 downloadOutput.addEventListener('click', () => {
-  const outputData = outputBind.textContent as string;
+  const outputData = outputBind;
 
   if (!outputData) {
     return;
   }
 
-  downloadTXT('bind_csgo', outputData.trim());
+  let outputFinal = "";
+
+  const outputChildren = outputBind.querySelectorAll("p.bind-created");
+
+  for (const child in outputChildren) {
+    const childText = outputChildren[child].textContent;
+    if (childText) {
+      outputFinal += `${childText.trim()}\n`;
+    }
+  }
+
+
+  downloadTXT('bind_csgo', outputFinal);
 });
 
 pageUpOrDown.addEventListener('click', () => {
